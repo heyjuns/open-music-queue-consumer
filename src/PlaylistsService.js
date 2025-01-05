@@ -28,13 +28,11 @@ class PlaylistsService {
       this.pool.query(querySongs),
     ]);
 
-    // if (!resultPlaylist.rows.length) {
-    //   throw new NotFoundError('Playlist tidak ditemukan');
-    // }
-
     return {
-      ...resultPlaylist.rows[0],
-      songs: resultSongs.rows,
+      playlist: {
+        ...resultPlaylist.rows[0],
+        songs: resultSongs.rows,
+      }
     };
   }
 }
